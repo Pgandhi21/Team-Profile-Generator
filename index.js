@@ -8,6 +8,7 @@ const teamPage = require("./src/teamHTML");
 
 const memberArray = [];
 
+// Manager Questions
 const managerQuestion = [
     {
         type: 'input',
@@ -29,8 +30,27 @@ const managerQuestion = [
         name: 'officeNum',
         message: "What is the team manager's office number?"
     },
-    ];
+];
 
+// Run Manager Question and push answer to array
+async function init() {
+    try {
+        const data = await inquirer.prompt(managerQuestion);
+        const team = new manager(data.id, data.employeeName, data.email, data.officeNum);
+        memberArray.push(team);
+        addMember();           
+        }
+    catch (error){
+        console.log(error);
+        console.log("Uh Oh");
+    }
+}
+
+   
+init();
+
+
+// Add team member question and push final array to generate html
 const addMember = () => {
     inquirer.prompt([
         {
@@ -63,7 +83,7 @@ function writeToFile(fileName, data) {
 };
 
 
-
+// Engineer Questions and push answer to array
 const engineerQuestion = () => {
     inquirer.prompt([
         {
@@ -94,6 +114,7 @@ const engineerQuestion = () => {
     });
 };
 
+// Intern Questions and push answer to array
 const internQuestion = () => {
     inquirer.prompt([
         {
@@ -125,21 +146,7 @@ const internQuestion = () => {
 };
 
 
-async function init() {
-    try {
-        const data = await inquirer.prompt(managerQuestion);
-        const team = new manager(data.id, data.employeeName, data.email, data.officeNum);
-        memberArray.push(team);
-        addMember();           
-        }
-    catch (error){
-        console.log(error);
-        console.log("Uh Oh");
-    }
-}
 
-   
-init();
     
 
 

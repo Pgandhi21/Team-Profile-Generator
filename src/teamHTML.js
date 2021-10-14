@@ -1,6 +1,6 @@
 
 
-
+// Manager Card
 function cardManager(data) {
 return `
     <div class="col s4 m4 l4 center-align">
@@ -22,19 +22,20 @@ return `
     `
 };
 
+// Engineer Card
 function cardEng(data) {
     return `
     <div class="col s4 m4 l4">
         <div class="card orange accent-1">
             <div class="card-content">
-                <span class="card-title ">${data.name}</span>
+                <span class="card-title">${data.name}</span>
                 <p>Engineer</p>
             </div>
             <div class="card-tabs blue-grey darken-1">
                 <ul class="list">
                     <li class="item">ID: ${data.id}</li>
-                    <li class="item">Email: "<a href="mailto:${data.email}"></a></li>
-                    <li class="item">GitHub Id: "<a href="https://github.com/${data.github}}"></a>${data.github}</li>
+                    <li class="item">Email: ${data.email}</li>
+                    <li class="item">GitHub Id: ${data.github}</a></li>
                 </ul>
             </div>
         </div>
@@ -42,7 +43,7 @@ function cardEng(data) {
     `
 };
 
-
+// Intern Card
 function cardIntern(data) {
     return `
     <div class="col s4 m4 l4">
@@ -54,7 +55,7 @@ function cardIntern(data) {
             <div class="card-tabs blue-grey darken-1">
                 <ul class="list">
                     <li class="item">ID: ${data.id}</li>
-                    <li class="item">Email: "<a href="mailto:${data.email}"></a></li>
+                    <li class="item">Email: ${data.email}</li>
                     <li class="item">School: ${data.school}</li>
                 </ul>
             </div>
@@ -63,6 +64,7 @@ function cardIntern(data) {
     `
 };
 
+// Create Card and append to html
 const createCard = data => {
     const newCard = [];
     const newManagerCard =[];
@@ -94,7 +96,7 @@ const createCard = data => {
 
 
 
-
+// Base html
 function teamPage(managerCard, memberCard) {
     return `
     <!DOCTYPE html>
